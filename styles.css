@@ -1,0 +1,35 @@
+/* Basic page styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+  }
+  
+  /* Styling for the Go button */
+  .go-button {
+    background-color: #4CAF50; /* Green background */
+    color: white;               /* White text */
+    padding: 15px 32px;         /* Padding for size */
+    font-size: 18px;            /* Larger font size */
+    border: none;               /* No border */
+    border-radius: 8px;         /* Rounded corners */
+    cursor: pointer;            /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation for hover */
+  }
+  
+  /* Hover effect */
+  .go-button:hover {
+    background-color: #45a049;  /* Slightly darker green on hover */
+    transform: scale(1.1);       /* Slightly enlarge the button */
+  }
+  
+  /* Active (clicked) effect */
+  .go-button:active {
+    background-color: #3e8e41;  /* Even darker green when clicked */
+    transform: scale(1.05);      /* Slightly shrink the button when clicked */
+  }
+  

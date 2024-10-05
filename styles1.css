@@ -1,0 +1,56 @@
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+  }
+  
+  /* Heart shape */
+  .heart {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transform: rotate(45deg);  /* Rotate the square to create the bottom of the heart */
+    display: inline-block;
+    animation: pulse 1.5s infinite alternate;
+  }
+  
+  /* Creating the lobes of the heart using pseudo-elements */
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;  /* Make the lobes round */
+    top: 0;
+  }
+  
+  /* Left lobe */
+  .heart::before {
+    left: 50px;  /* Position the left lobe to the left */
+  }
+  
+  /* Right lobe */
+  .heart::after {
+    left: -50px;  /* Position the right lobe to the right */
+  }
+  
+  /* Animation to make the heart pulse */
+  @keyframes pulse {
+    0% {
+      transform: scale(1) rotate(45deg);
+    }
+    100% {
+      transform: scale(1.1) rotate(45deg);
+    }
+  }
+  
+  /* Anchor stylin
+  
