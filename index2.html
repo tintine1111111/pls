@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Sanctuary Album Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5a1b3b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .album {
+            width: 350px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .album img {
+            width: 100%;
+            filter: grayscale(100%);
+            object-fit: cover;
+            border: 5px solid #5a1b3b;
+        }
+
+        .album .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .album .overlay .title {
+            color: #f52f7e;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .album .info {
+            margin-top: 15px;
+            background-color: #300d22;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .track-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .track-info .track-number {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .track-info .track-title {
+            font-size: 1em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .track-info .duration {
+            font-size: 1em;
+            opacity: 0.7;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .progress {
+            width: 2%;
+            height: 100%;
+            background-color: white;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .controls button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .controls button:hover {
+            color: #f52f7e;
+        }
+    </style>
+</head>
+<body>
+    <div class="album">
+        <img src="picture.jpg" alt="Silent Sanctuary Album Cover">
+        <div class="overlay">
+            <div class="title"></div>
+        </div>
+        <div class="info">
+            <div class="track-info">
+                <div class="track-number">14</div>
+                <div class="track-title">Silent Sanctuary</div>
+                <div class="duration">5:54</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="controls">
+                <button id="prev-btn">⏮</button>
+                <button id="play-pause-btn">⏸</button>
+                <button id="next-btn">⏭</button>
+            </div>
+        </div>
+
+        <!-- Add audio element -->
+        <audio id="audio-player">
+            <source src="beng.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        // Get audio element and buttons
+        const audio = document.getElementById('audio-player');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play(); // Play the audio
+                playPauseBtn.textContent = '⏸'; // Change button to "Pause"
+            } else {
+                audio.pause(); // Pause the audio
+                playPauseBtn.textContent = '▶'; // Change button to "Play"
+            }
+        });
+
+        // Optional: You can add functionality for the previous/next buttons if you have multiple tracks
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            // Logic to go to the previous track
+            console.log('Previous track');
+        });
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            // Logic to go to the next track
+            console.log('Next track');
+        });
+    </script>
+</body>
+</html>
