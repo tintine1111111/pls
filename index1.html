@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Heart Shape with Animation</title>
+    <style>
+        /* Body styles to center content */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+            position: relative;
+        }
+
+        /* Heart shape */
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transform: rotate(-45deg);
+            cursor: pointer; /* Makes it appear clickable */
+            animation: pulse 1.5s infinite alternate; /* Animation for the pulse effect */
+            display: inline-block;
+        }
+
+        /* Creating the two lobes of the heart */
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        /* Left lobe */
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        /* Right lobe */
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+
+        /* Pulse animation for the heart */
+        @keyframes pulse {
+            0% {
+                transform: scale(1) rotate(-45deg);
+            }
+            100% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+        }
+
+        /* "Click it!" message positioning (left of the heart) */
+        .message {
+            position: absolute;
+            left: -130px; /* Move the message to the left of the heart */
+            top: 50%; /* Center the message vertically */
+            transform: translateY(-50%); /* Adjust to exactly center the message */
+            font-size: 18px;
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            display: block; /* Display the message by default */
+        }
+
+        /* Anchor tag styling (optional) */
+        a {
+            text-decoration: none;  /* Remove underline from link */
+        }
+    </style>
+</head>
+<body>
+    <!-- Heart wrapped in an anchor tag for making it clickable -->
+    <a href="index2.html">
+        <div class="heart" id="heart">
+            <!-- The "Click it!" message will be shown before clicking the heart -->
+            <div class="message" id="message">Click it!</div>
+        </div>
+    </a>
+
+    <script>
+        // JavaScript to handle the heart click and redirect after showing the message
+        const heart = document.getElementById('heart');
+        const message = document.getElementById('message');
+
+        heart.addEventListener('click', function(event) {
+            event.preventDefault();  // Prevents the default link action
+
+            // Optionally, add more styles or animation when clicked
+            message.innerText = "Redirecting...";  // Change message text to indicate action
+
+            // Redirect after a short delay
+            setTimeout(function() {
+                window.location.href = 'index2.html'; // Redirect to index2.html
+            }, 1500); // Redirect after 1.5 seconds
+        });
+    </script>
+</body>
+</html>
+
